@@ -32,5 +32,12 @@ def reseta():
     model.apaga_tudo()
     return "resetado" 
 
+@app.route("/alunos/<int:nAluno>", methods=["DELETE"]) 
+def deletaPorId(nAluno):
+    try:
+        return model.deleta_por_id(nAluno)
+    except model.AlunoNaoEncontrado:
+        return ( {"erro":'aluno nao encontrado'}, 400)
+
 if __name__ == '__main__':
         app.run(host = 'localhost', port = 5002, debug = True)
