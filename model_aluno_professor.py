@@ -22,6 +22,16 @@ def aluno_existe(id_aluno):
     except AlunoNaoEncontrado:
         return False
 
+def deleta_por_id(id_aluno):
+    lista_alunos = dados['alunos']
+    for index, aluno in enumerate(lista_alunos):
+        if aluno["id"] == id_aluno:
+            dados['alunos'].pop(index)
+            return
+        
+    raise AlunoNaoEncontrado(f"Aluno com ID {id_aluno} não encontrado")
+    
+
 def adiciona_aluno(dict):
     dados['alunos'].append(dict)
 
