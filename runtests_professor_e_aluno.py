@@ -204,7 +204,7 @@ class TestStringMethods(unittest.TestCase):
         #vou editar. Vou mandar um novo dicionario p/ corrigir o dicionario
         #que já estava no 28 (note que só mandei o nome)
         #para isso, uso o verbo PUT
-        requests.put('http://localhost:5002/alunos/28', json={'nome':'lucas mendes'})
+        requests.put('http://localhost:5002/alunos/28', json={'nome':'lucas mendes', 'id':28})
         #pego o novo dicionario do aluno 28
         r_depois = requests.get('http://localhost:5002/alunos/28')
         #agora o nome deve ser lucas mendes
